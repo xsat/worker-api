@@ -1,7 +1,8 @@
 <?php
 
-use App\v1_0\Controllers\PublicHelloController;
 use App\v1_0\Controllers\PublicEventController;
+use App\v1_0\Controllers\PublicHelloController;
+use App\v1_0\Controllers\PublicLogController;
 use Nen\Http\Request;
 use Nen\Router\Group;
 use Nen\Router\Route;
@@ -18,6 +19,9 @@ return new Routes([
             new Route(PublicEventController::class, 'view', '([0-9]+)', Request::METHOD_GET),
             new Route(PublicEventController::class, 'update', '([0-9]+)', Request::METHOD_PUT),
             new Route(PublicEventController::class, 'delete', '([0-9]+)', Request::METHOD_DELETE),
+        ])),
+        new Group('log', new Routes([
+            new Route(PublicLogController::class, 'list', null, Request::METHOD_GET),
         ])),
     ])),
 ]);

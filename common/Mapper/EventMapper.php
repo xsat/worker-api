@@ -8,33 +8,14 @@ use Common\Model\Event;
 /**
  * Class EventMapper
  */
-class EventMapper
+class EventMapper extends Mapper
 {
     /**
-     * @var array
+     * @return string
      */
-    private $data = [];
-
-    /**
-     * EventMapper constructor.
-     */
-    public function __construct()
+    protected function getSource(): string
     {
-        $this->data = json_decode(
-            file_get_contents(DATA_DIR . 'events.json'),
-            true
-        ) ?: [];
-    }
-
-    /**
-     * EventMapper constructor.
-     */
-    public function __destruct()
-    {
-        file_put_contents(
-            DATA_DIR . 'events.json',
-            json_encode($this->data)
-        );
+        return 'event';
     }
 
     /**
