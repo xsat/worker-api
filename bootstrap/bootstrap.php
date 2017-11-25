@@ -3,6 +3,8 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 'on');
 
+define('DATA_DIR', __DIR__ . '/../data/');
+
 require_once __DIR__ . '/../vendor/autoload.php';
 
 use Dotenv\Dotenv;
