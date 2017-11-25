@@ -119,3 +119,37 @@ HTTP/1.x 200 OK
 Content-Type: application/json
 {}
 ```
+
+## 2. Logs
+
+### 1.1. View logs
+
+Params:
+
+* offset  // default **0**
+* limit  // default **10**
+
+Request:
+
+```
+GET {{host}}/api/1.0/event
+```
+
+Response:
+```
+HTTP/1.x 200 OK
+Content-Type: application/json
+{
+    "total": 1,
+    "count": 1,
+    "offset": 0,
+    "limit": 10,
+    "items": [
+        {
+            "logId": 1,
+            "content": "694260526",
+            "createdAt": "2017-11-25T22:54:28+01:00"
+        }
+    ]
+}
+```
