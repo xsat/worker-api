@@ -5,7 +5,6 @@ namespace App\v1_0\Controllers;
 use Common\Binder\ListBinder;
 use Common\Formatter\LogListFormatter;
 use Common\Mapper\LogMapper;
-use Common\Model\Log;
 use Common\Validation\ListValidation;
 use Nen\Exception\ValidationException;
 
