@@ -30,7 +30,7 @@ class Event extends Model
     private $payload;
 
     /**
-     * @param int|null $event_id
+     * @return int|null
      */
     public function getEventId(): ?int
     {
