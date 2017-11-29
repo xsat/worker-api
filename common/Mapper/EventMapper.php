@@ -65,7 +65,7 @@ class EventMapper extends Mapper
     {
         return [
             'eventId' => $event->getEventId(),
-            'name' => $event->getName(),
+            'taskType' => $event->getTaskType(),
             'link' => $event->getLink(),
             'payload' => $event->getPayload(),
         ];
@@ -105,5 +105,24 @@ class EventMapper extends Mapper
     public function getTotal(): int
     {
         return count($this->data);
+    }
+
+    /**
+     * @param string $taskType
+     *
+     * @return Event[]
+     */
+    public function getByTaskType(string $taskType): array
+    {
+        $events = [];
+
+        foreach ($this->data as $datum) {
+            $event = new Event($datum);
+            if ($event->getTaskType() === $taskType) {
+                $events[] = $event;
+            }
+        }
+
+        return $events;
     }
 }

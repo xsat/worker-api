@@ -9,20 +9,20 @@ use Common\Model\Task;
 use GuzzleHttp\Client;
 
 /**
- * Class HelloTask
+ * Class LogTask
  */
-class HelloTask extends PayloadTask
+class LogTask extends PayloadTask
 {
     public function process(): void
     {
         $logMapper = new LogMapper();
         $logMapper->create(new Log(
             [
-                'content' => 'Hello task processing',
+                'content' => 'Log task processing',
             ]
         ));
 
-        $events = (new EventMapper())->getByTaskType(Task::TYPE_HELLO);
+        $events = (new EventMapper())->getByTaskType(Task::TYPE_LOG);
         $client = new Client();
 
         foreach ($events as $event) {
@@ -45,7 +45,7 @@ class HelloTask extends PayloadTask
 
         $logMapper->create(new Log(
             [
-                'content' => 'Hello task was processed',
+                'content' => 'Log task was processed',
             ]
         ));
     }

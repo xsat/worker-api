@@ -3,8 +3,6 @@
 namespace App\v1_0\Controllers;
 
 use Common\Binder\TaskBinder;
-use Common\Mapper\LogMapper;
-use Common\Model\Log;
 use Common\Task\TaskFactory;
 use Common\Validation\TaskValidation;
 use Nen\Exception\ValidationException;
@@ -20,17 +18,13 @@ class PublicTaskController extends Controller
     public function processAction(): void
     {
         $validation = new TaskValidation();
-        $binder = new TaskBinder($this->request->getPost() ?? []);
+        $binder = new TaskBinder($this->request->getPut() ?? []);
 
         if (!$validation->validate($binder)) {
             throw new ValidationException($validation);
         }
 
         (new TaskFactory())->build($binder)->process();
-
-        (new LogMapper())->create(new Log([
-            'content' => 'Task `' . $binder->getType() . '` was processed'
-        ]));
 
         $this->response();
     }

@@ -12,7 +12,7 @@ class EventBinder extends Binder
     /**
      * @var string
      */
-    private $name;
+    private $task_type;
 
     /**
      * @var string
@@ -27,17 +27,17 @@ class EventBinder extends Binder
     /**
      * @return null|string
      */
-    public function getName(): ?string
+    public function getTaskType(): ?string
     {
-        return $this->name;
+        return $this->task_type;
     }
 
     /**
-     * @param null|string $name
+     * @param null|string $task_type
      */
-    public function setName(?string $name): void
+    public function setTaskType(?string $task_type)
     {
-        $this->name = $name;
+        $this->task_type = $task_type;
     }
 
     /**

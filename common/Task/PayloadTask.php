@@ -3,9 +3,9 @@
 namespace Common\Task;
 
 /**
- * Class Task
+ * Class PayloadTask
  */
-abstract class Task implements TaskInterface
+abstract class PayloadTask implements TaskInterface
 {
     /**
      * @var array
@@ -13,7 +13,7 @@ abstract class Task implements TaskInterface
     protected $payload;
 
     /**
-     * Task constructor.
+     * PayloadTask constructor.
      *
      * @param array|null $payload
      */

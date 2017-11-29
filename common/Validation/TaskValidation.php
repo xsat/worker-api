@@ -17,6 +17,7 @@ class TaskValidation extends Validation
      */
     private $types = [
         Task::TYPE_HELLO,
+        Task::TYPE_LOG,
     ];
 
     /**

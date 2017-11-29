@@ -17,7 +17,7 @@ class Event extends Model
     /**
      * @var string
      */
-    private $name;
+    private $task_type;
 
     /**
      * @var string
@@ -48,17 +48,17 @@ class Event extends Model
     /**
      * @return string
      */
-    public function getName(): string
+    public function getTaskType(): string
     {
-        return $this->name;
+        return $this->task_type;
     }
 
     /**
-     * @param string $name
+     * @param string $task_type
      */
-    public function setName(string $name): void
+    public function setTaskType(string $task_type)
     {
-        $this->name = $name;
+        $this->task_type = $task_type;
     }
 
     /**

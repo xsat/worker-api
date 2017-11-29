@@ -54,7 +54,7 @@ class PublicEventController extends Controller
         }
 
         $event = new Event();
-        $event->setName($binder->getName());
+        $event->setTaskType($binder->getTaskType());
         $event->setLink($binder->getLink());
         $event->setPayload($binder->getPayload());
 
@@ -101,7 +101,7 @@ class PublicEventController extends Controller
             throw new ValidationException($validation);
         }
 
-        $event->setName($binder->getName());
+        $event->setTaskType($binder->getTaskType());
         $event->setLink($binder->getLink());
         $event->setPayload($binder->getPayload());
         $mapper->update($event);

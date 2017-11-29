@@ -2,9 +2,11 @@
 
 namespace Common\Validation;
 
+use Common\Model\Task;
 use Nen\Validation\Validation;
 use Nen\Validation\Validator\Maximum;
 use Nen\Validation\Validator\Presence;
+use Nen\Validation\Validator\Range;
 use Nen\Validation\Validator\Url;
 
 /**
@@ -13,13 +15,21 @@ use Nen\Validation\Validator\Url;
 class EventValidation extends Validation
 {
     /**
+     * @var array
+     */
+    private $taskTypes = [
+        Task::TYPE_HELLO,
+        Task::TYPE_LOG,
+    ];
+
+    /**
      * EventValidation constructor.
      */
     public function __construct()
     {
         parent::__construct([
-            new Presence('name', 'Field `name` is required'),
-            new Maximum('name', 255, 'Field `name` must not exceed 255 characters long'),
+            new Presence('taskType', 'Field `taskType` is required'),
+            new Range('taskType', $this->taskTypes, 'Field `taskType` is invalid'),
 
             new Presence('link', 'Field `link` is required'),
             new Url('link', 'Field `link` is not url'),

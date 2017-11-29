@@ -32,7 +32,7 @@ class EventFormatter implements FormatterInterface
     {
         return [
             'eventId' => $this->event->getEventId(),
-            'name' => $this->event->getName(),
+            'taskType' => $this->event->getTaskType(),
             'link' => $this->event->getLink(),
             'payload' => $this->event->getPayload(),
         ];

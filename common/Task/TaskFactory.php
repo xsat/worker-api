@@ -15,6 +15,7 @@ class TaskFactory
      */
     private $types = [
         Task::TYPE_HELLO => HelloTask::class,
+        Task::TYPE_LOG => LogTask::class,
     ];
 
     /**
